@@ -11,11 +11,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * Here we attempt to use floyd warshall algorithm to find the shortest path
- * among nodes. This algorithm finds the shortest path among all nodes.
+ * Here we attempt to use Dijkstra, Bellman ford and floyd warshall algorithm to find the shortest path
+ * among nodes. These are the algorithms that finds shortest path in a directed graph.
  * 
- * @author harsh Negative edges are allowed, but no negative cycle. Time
- *         Complexity: O(n^3)
+ * @author harsh 
  */
 public class ShortestPath {
 	
@@ -61,6 +60,9 @@ public class ShortestPath {
 	/**
 	 * Dijkstra shortest path from one node to all other nodes. Greedy Algorithm
 	 * Does not Works on graphs with negative edge weights. 
+	 * 
+	 * Dijkstra's algorithm is used only when you have a single source and you want to know 
+	 * the smallest path from one node to another, but fails [in graphs with negative edges]
 	 * @param inputList
 	 * @param startNode
 	 * @return
@@ -144,6 +146,8 @@ public class ShortestPath {
 	/**
 	 * Bellman ford = shortest path from one node to all other nodes.
 	 * Works on graphs with negative edge weights. Fails on negative cycle
+	 * 
+	 * Bellman-Ford is used like Dijkstra's, when there is only one source. This can handle negative weights.
 	 * @param inputList
 	 * @param startNode
 	 * @return
@@ -220,10 +224,14 @@ public class ShortestPath {
 	
 	/**
 	 * Floyd warshall algorithm for finding shortest path to all the nodes in a graph 
-	 * starting from any node
+	 * starting from any node. Negative edges are allowed, but no negative cycle.
+	 * 
+	 * Floyd-Warshall's algorithm is used when any of all the nodes can be a source, 
+	 * so you want the shortest distance to reach any destination node from any source node. 
+	 * This only fails when there are negative cycles.
 	 * @param inputList
 	 * @return
-	 * Time Complexity: O(n^3)
+	 * Time Complexity: O(V^3)
 	 * Ref : https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm
 	 */
 	int[][] shortestFloydPath(List<List<Integer>> inputList) {
