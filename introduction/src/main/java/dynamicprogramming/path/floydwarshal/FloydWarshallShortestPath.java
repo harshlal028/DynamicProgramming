@@ -1,4 +1,4 @@
-package dynamicprogramming.floydwarshal;
+package dynamicprogramming.path.floydwarshal;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
